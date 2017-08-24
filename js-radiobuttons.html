@@ -1,0 +1,53 @@
+<!DOCTYPE htm>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Radiobutton - js</title>
+</head>
+<body>
+<h1>Radiobutton - js</h1>
+
+
+<!-- #################### Esimerkki 1: document.querySelector #################### -->
+<div style="border: 1px solid #444; margin: 1em; padding: 1em;">
+  <h2>document.querySelector</h2>
+  <p>Tässä esimerkissä käytetään document.querySelector -metodia, joka osaa hakea css-valitsemella oikan elementin.</p>
+  <input type="radio" name="animal" value="kissa" onchange="checkSelectedAnimal()" />Kissa<br/>
+  <input type="radio" name="animal" value="gorilla" onchange="checkSelectedAnimal()" />Gorilla<br/>
+  <input type="radio" name="animal" value="koira" onchange="checkSelectedAnimal()" />Koira<br/>
+  <input type="radio" name="animal" value="apina" onchange="checkSelectedAnimal()" />Apina<br/>
+  <p>Valintasi: <span id="valintasiAnimal"></span></p>
+  <p>Lisätietoa: <a href="http://www.w3schools.com/jsref/met_document_queryselector.asp">http://www.w3schools.com/jsref/met_document_queryselector.asp</a></p>
+</div>
+<script>
+function checkSelectedAnimal(){
+  var selectedAnimal = document.querySelector('input[name = "animal"]:checked').value;
+  document.getElementById("valintasiAnimal").innerHTML = selectedAnimal;
+}
+</script>
+
+
+<!-- #################### Esimerkki 2: document.getElementsByName #################### -->
+<div style="border: 1px solid #444; margin: 1em; padding: 1em;">
+  <h2>document.getElementsByName</h2>
+  <p>Tässä esimerkissä käytetään document.getElementsByName -metodia, joka osaa hakea name-attribuutin nimen perusteella kaikki radio-buttonit.</p>
+  <input type="radio" name="fruit" value="omena" onchange="checkSelectedFruit()" />Omena<br/>
+  <input type="radio" name="fruit" value="banaani" onchange="checkSelectedFruit()" />Banaani<br/>
+  <input type="radio" name="fruit" value="appelsiini" onchange="checkSelectedFruit()" />Appelsiini<br/>
+  <input type="radio" name="fruit" value="päärynä" onchange="checkSelectedFruit()" />Päärynä<br/>
+  <p>Valintasi: <span id="valintasiFruits"></span></p>
+  <p>Lisätietoa: <a href="http://www.w3schools.com/jsref/met_doc_getelementsbyname.asp">http://www.w3schools.com/jsref/met_doc_getelementsbyname.asp</a></p>
+</div>
+<script>
+function checkSelectedFruit(){
+  var fruits = document.getElementsByName("fruit");
+  for (var i=0; i<fruits.length; i++){
+    if (fruits[i].checked) document.getElementById("valintasiFruits").innerHTML = fruits[i].value;
+  }
+}
+
+</script>
+
+
+</body>
+</html>
